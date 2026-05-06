@@ -1,0 +1,15 @@
+{
+  "name": "generalfolders-site",
+  "version": "0.1.0",
+  "private": true,
+  "description": "General Folders marketing website and blog.",
+  "scripts": {
+    "dev": "eleventy --serve",
+    "build": "eleventy"
+  },
+  "dependencies": {
+    "@11ty/eleventy": "^3.1.2",
+    "luxon": "^3.7.2",
+    "markdown-it-anchor": "^9.2.0"
+  }
+}

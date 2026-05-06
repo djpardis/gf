@@ -1,0 +1,49 @@
+---
+layout: base.njk
+---
+<section class="section page-hero">
+  <div class="article">
+    <article class="article-body">
+      <header class="post-header">
+        <a class="back-link" href="/blog/">← Back to blog</a>
+        <p class="meta">
+          <time datetime="{{ date | htmlDateString }}">{{ date | readableDate }}</time>
+          {% if author %}<span class="muted"> · {{ author }}</span>{% endif %}
+        </p>
+        <h1 class="page-title">{{ title }}</h1>
+      </header>
+      {{ content | safe }}
+    </article>
+    {% if toc %}
+      <aside class="toc">
+        <p class="toc-title">On this page</p>
+        {% for item in toc %}
+          <a href="#{{ item.id }}" data-toc-link="{{ item.id }}">{{ item.label }}</a>
+        {% endfor %}
+      </aside>
+    {% endif %}
+  </div>
+</section>
+{% if toc %}
+  <script>
+    (() => {
+      const headings = [...document.querySelectorAll(".article-body h2[id]")];
+      const links = new Map([...document.querySelectorAll("[data-toc-link]")].map((link) => [link.dataset.tocLink, link]));
+      if (!headings.length || !links.size) return;
+
+      const setActive = (id) => {
+        links.forEach((link, linkId) => link.classList.toggle("is-active", linkId === id));
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+        if (visible[0]) setActive(visible[0].target.id);
+      }, { rootMargin: "-18% 0px -70% 0px", threshold: 0 });
+
+      headings.forEach((heading) => observer.observe(heading));
+      setActive(headings[0].id);
+    })();
+  </script>
+{% endif %}
