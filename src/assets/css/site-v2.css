@@ -377,6 +377,13 @@ h2 .gradient-text::after {
   gap: 14px;
   margin-top: 0;
   padding-top: 0;
+  text-decoration: none;
+}
+
+.person:hover strong {
+  color: var(--blue);
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
 }
 
 .person strong {

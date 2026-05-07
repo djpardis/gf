@@ -119,6 +119,14 @@
     </footer>
     <script>
       (() => {
+        document.querySelectorAll("a[href^='http://'], a[href^='https://']").forEach((link) => {
+          const url = new URL(link.href, window.location.href);
+          if (url.origin === window.location.origin) return;
+
+          link.target = "_blank";
+          link.rel = "noopener noreferrer";
+        });
+
         const modal = document.querySelector("[data-sales-modal]");
         const openers = document.querySelectorAll("[data-open-sales-modal], a[href='#talk-to-sales']");
         const closers = document.querySelectorAll("[data-close-sales-modal]");
