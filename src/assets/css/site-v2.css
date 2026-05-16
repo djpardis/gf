@@ -928,6 +928,11 @@ h2 .gradient-text::after {
     grid-template-columns: 1fr;
   }
 
+  .form-submit {
+    grid-column: 1;
+    justify-self: end;
+  }
+
   .logo-row {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     max-width: 520px;
