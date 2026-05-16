@@ -165,7 +165,7 @@ a:hover {
 .hero-grid-simple {
   align-items: center;
   display: block;
-  min-height: calc(100svh - 64px);
+  min-height: 680px;
   padding-block: clamp(48px, 7vw, 88px);
 }
 
@@ -771,6 +771,11 @@ h2 .gradient-text::after {
   margin: -4px 0 0;
 }
 
+.sales-form .form-note span {
+  color: var(--coral);
+  font-weight: 700;
+}
+
 .sales-form label {
   display: grid;
   gap: 7px;
@@ -835,6 +840,11 @@ h2 .gradient-text::after {
 
 .form-full {
   grid-column: 1 / -1;
+}
+
+.form-submit {
+  grid-column: 2;
+  justify-self: end;
 }
 
 .modal-open {
@@ -902,7 +912,7 @@ h2 .gradient-text::after {
 
   .hero-grid,
   .hero-grid-simple {
-    min-height: calc(100svh - 116px);
+    min-height: 620px;
     padding-block: 72px 84px;
   }
 
@@ -1038,7 +1048,7 @@ h2 .gradient-text::after {
 
   .hero-grid,
   .hero-grid-simple {
-    min-height: calc(100svh - 132px);
+    min-height: 560px;
     padding-block: 54px 62px;
   }
 

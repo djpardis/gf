@@ -12,7 +12,10 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="{{ title or site.title }}">
     <meta name="twitter:description" content="{{ description or site.description }}">
-    <link rel="icon" type="image/png" href="/assets/images/favicon-purple.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32x32.png">
+    <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="/assets/images/favicon.png">
     <link rel="stylesheet" href="/assets/css/site-v2.css">
   </head>
   <body>
@@ -28,8 +31,7 @@
           <a href="/news/">News</a>
         </nav>
         <div class="nav-actions">
-          <a class="button button-primary" href="{{ site.loginUrl }}">Login</a>
-          <button class="button button-green" type="button" data-open-sales-modal>Talk to sales</button>
+          <button class="button button-green" type="button" data-open-sales-modal>Book demo</button>
         </div>
       </div>
     </header>
@@ -42,9 +44,9 @@
       <div class="modal-backdrop" data-close-sales-modal></div>
       <section class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="sales-modal-title">
         <button class="modal-close" type="button" aria-label="Close" data-close-sales-modal>×</button>
-        <p class="eyebrow">Talk to sales</p>
-        <h2 id="sales-modal-title">Let's discuss your data exchange use cases.</h2>
-        <p class="modal-intro">Tell us a little about your team and what you are trying to move between companies.</p>
+        <p class="eyebrow">Book demo</p>
+        <h2 id="sales-modal-title">See how General Folders handles your transfers.</h2>
+        <p class="modal-intro">Tell us about your use case, systems, and clients.</p>
         <form class="sales-form" action="{{ site.requestAccessUrl }}" method="POST">
           <input type="hidden" name="_subject" value="General Folders sales request">
           <p class="form-note form-full">Fields marked <span aria-hidden="true">*</span> are required.</p>
@@ -65,14 +67,10 @@
             <input name="linkedin" type="url" autocomplete="url">
           </label>
           <label class="form-full">
-            <span>Data exchange needs <em aria-hidden="true">*</em></span>
+            <span>Data transfer needs <em aria-hidden="true">*</em></span>
             <textarea name="needs" rows="5" required aria-required="true"></textarea>
           </label>
-          <label class="checkbox-field form-full">
-            <input name="contact_permission" type="checkbox" value="yes" required aria-required="true">
-            <span>I agree to be contacted by General Folders about my data exchange needs. <em aria-hidden="true">*</em></span>
-          </label>
-          <button class="button button-primary form-full" type="submit">Send request</button>
+          <button class="button button-primary form-submit" type="submit">Send request</button>
         </form>
       </section>
     </div>
@@ -87,7 +85,7 @@
               <li><a href="https://beststartup.la/securing-the-cloud-spotlight-on-san-franciscos-innovative-cloud-security-companies/">Securing the Cloud: Spotlight on San Francisco's Innovative Cloud Security Companies</a></li>
               <li><a href="https://www.techstars.com/newsroom/new-class-san-diego-sdsu">Techstars San Diego Powered By San Diego State University Announces Inaugural 2023 Class</a></li>
             </ul>
-            <a class="footer-more" href="/news/">More</a>
+            <a class="footer-more" href="/news/">More →</a>
           </div>
           <div>
             <h3>Company</h3>
