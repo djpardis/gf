@@ -29,7 +29,7 @@ html {
 
 html,
 body {
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 img,
@@ -527,6 +527,7 @@ h2 .gradient-text::after {
 }
 
 .article {
+  align-items: start;
   display: grid;
   gap: 64px;
   grid-template-columns: minmax(0, 760px) 240px;
@@ -596,9 +597,16 @@ h2 .gradient-text::after {
   width: 100%;
 }
 
-.toc {
+.toc-wrap {
   align-self: start;
+  height: 100%;
+  width: 240px;
+}
+
+.toc {
   border-left: 1px solid var(--line);
+  max-height: calc(100vh - 120px);
+  overflow: auto;
   padding-left: 18px;
   position: sticky;
   top: 96px;
@@ -954,6 +962,10 @@ h2 .gradient-text::after {
   }
 
   .toc {
+    display: none;
+  }
+
+  .toc-wrap {
     display: none;
   }
 }

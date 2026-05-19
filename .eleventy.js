@@ -26,6 +26,26 @@ module.exports = function (eleventyConfig) {
     return (items || []).slice(0, count);
   });
 
+  eleventyConfig.addFilter("extractHeadings", (content) => {
+    const headings = [];
+    const headingPattern = /<h2\b[^>]*\bid="([^"]+)"[^>]*>([\s\S]*?)<\/h2>/g;
+    let match;
+
+    while ((match = headingPattern.exec(content || "")) !== null) {
+      headings.push({
+        id: match[1],
+        label: match[2]
+          .replace(/<[^>]+>/g, "")
+          .replace(/&amp;/g, "&")
+          .replace(/&quot;/g, "\"")
+          .replace(/&#39;/g, "'")
+          .trim()
+      });
+    }
+
+    return headings;
+  });
+
   eleventyConfig.addShortcode("year", () => `${new Date().getFullYear()}`);
 
   eleventyConfig.addPairedShortcode("youtube", (videoId) => {

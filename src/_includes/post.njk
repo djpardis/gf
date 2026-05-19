@@ -1,6 +1,8 @@
 ---
 layout: base.njk
 ---
+{% set extractedToc = content | extractHeadings %}
+{% set postToc = extractedToc if extractedToc.length else toc %}
 <section class="section page-hero">
   <div class="article">
     <article class="article-body">
@@ -8,23 +10,27 @@ layout: base.njk
         <a class="back-link" href="/blog/">← Back to blog</a>
         <p class="meta">
           <time datetime="{{ date | htmlDateString }}">{{ date | readableDate }}</time>
-          {% if author %}<span class="muted"> · {{ author }}</span>{% endif %}
+          {% if author %}
+            <span class="muted"> · {% if author == "Pardis Noorzad" %}<a href="https://djpardis.com">{{ author }}</a>{% else %}{{ author }}{% endif %}</span>
+          {% endif %}
         </p>
         <h1 class="page-title">{{ title }}</h1>
       </header>
       {{ content | safe }}
     </article>
-    {% if toc %}
-      <aside class="toc">
-        <p class="toc-title">On this page</p>
-        {% for item in toc %}
-          <a href="#{{ item.id }}" data-toc-link="{{ item.id }}">{{ item.label }}</a>
-        {% endfor %}
+    {% if postToc and postToc.length %}
+      <aside class="toc-wrap">
+        <nav class="toc" aria-label="Post table of contents">
+          <p class="toc-title">Table of contents</p>
+          {% for item in postToc %}
+            <a href="#{{ item.id }}" data-toc-link="{{ item.id }}">{{ item.label }}</a>
+          {% endfor %}
+        </nav>
       </aside>
     {% endif %}
   </div>
 </section>
-{% if toc %}
+{% if postToc and postToc.length %}
   <script>
     (() => {
       const headings = [...document.querySelectorAll(".article-body h2[id]")];
