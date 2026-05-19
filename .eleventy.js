@@ -18,6 +18,10 @@ module.exports = function (eleventyConfig) {
     return DateTime.fromJSDate(dateObj, { zone: "utc" }).toFormat("yyyy-LL-dd");
   });
 
+  eleventyConfig.addFilter("dateToRfc822", (dateObj) => {
+    return DateTime.fromJSDate(dateObj, { zone: "utc" }).toRFC2822();
+  });
+
   eleventyConfig.addFilter("limit", (items, count) => {
     return (items || []).slice(0, count);
   });
