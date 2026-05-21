@@ -1,8 +1,7 @@
 {
   "name": "General Folders",
-  "title": "General Folders — B2B data transfer",
+  "title": "General Folders | Business-to-business data transfer",
   "description": "General Folders is an identity- and policy-aware transport layer for B2B data, replacing hacky SFTP, email, and ad-hoc pipelines.",
   "url": "https://generalfolders.com",
-  "loginUrl": "https://app.generalfolders.com/login",
-  "requestAccessUrl": "https://formspree.io/f/xpwvlpbe"
+  "requestAccessUrl": "https://form.generalfolders.com/submit/book-demo"
 }
