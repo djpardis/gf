@@ -8,7 +8,6 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/favicon.png");
   eleventyConfig.addPassthroughCopy("src/favicon-16x16.png");
   eleventyConfig.addPassthroughCopy("src/favicon-32x32.png");
-  eleventyConfig.addPassthroughCopy("src/favicon-48x48.png");
   eleventyConfig.addPassthroughCopy("src/apple-touch-icon.png");
   eleventyConfig.addPassthroughCopy("src/apple-touch-icon-120x120.png");
   eleventyConfig.addPassthroughCopy("src/apple-touch-icon-152x152.png");
