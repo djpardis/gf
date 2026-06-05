@@ -28,7 +28,40 @@
     <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=3">
     <link rel="icon" type="image/png" href="/favicon.png?v=2">
     <link rel="alternate" type="application/rss+xml" title="{{ site.name }} Blog" href="{{ site.url }}/feed.xml">
+    <link rel="canonical" href="{{ site.url }}{{ page.url }}">
     <link rel="stylesheet" href="/assets/css/site-v2.css">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "{{ site.url }}/#organization",
+          "name": "{{ site.name }}",
+          "url": "{{ site.url }}",
+          "logo": "{{ site.url }}/assets/images/gf-logo-horizontal.png",
+          "description": "{{ site.description }}"
+        },
+        {
+          "@type": "WebSite",
+          "@id": "{{ site.url }}/#website",
+          "url": "{{ site.url }}",
+          "name": "{{ site.name }}",
+          "description": "{{ site.description }}",
+          "publisher": { "@id": "{{ site.url }}/#organization" }
+        },
+        {
+          "@type": "SoftwareApplication",
+          "name": "{{ site.name }}",
+          "applicationCategory": "BusinessApplication",
+          "operatingSystem": "Web",
+          "url": "{{ site.url }}",
+          "description": "{{ site.description }}",
+          "publisher": { "@id": "{{ site.url }}/#organization" }
+        }
+      ]
+    }
+    </script>
   </head>
   <body>
     <header class="site-header">
@@ -37,13 +70,12 @@
           <img class="brand-logo" src="/assets/images/gf-logo-horizontal.png" alt="General Folders">
         </a>
         <nav class="nav-links" aria-label="Main navigation">
-          <a href="/">Home</a>
+          <a href="/product/">Product</a>
+          <a href="/resources/">Resources</a>
           <a href="/company/">Company</a>
-          <a href="/blog/">Blog</a>
-          <a href="/news/">News</a>
         </nav>
         <div class="nav-actions">
-          <button class="button button-green" type="button" data-open-sales-modal>Book demo</button>
+          <button class="button button-green" type="button" data-open-sales-modal>Get started</button>
         </div>
       </div>
     </header>
@@ -56,34 +88,38 @@
       <div class="modal-backdrop" data-close-sales-modal></div>
       <section class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="sales-modal-title">
         <button class="modal-close" type="button" aria-label="Close" data-close-sales-modal>×</button>
-        <p class="eyebrow">Book demo</p>
-        <h2 id="sales-modal-title">See how General Folders handles your transfers.</h2>
+        <p class="eyebrow">Get started</p>
+        <h2 id="sales-modal-title">See how General Folders fits your stack.</h2>
         <p class="modal-intro">Tell us about your use case, systems, and clients.</p>
         <form class="sales-form" action="{{ site.requestAccessUrl }}" method="POST" data-sales-form>
           <input type="hidden" name="_subject" value="General Folders sales request">
-          <p class="form-note form-full">Fields marked <span aria-hidden="true">*</span> are required.</p>
+          <div class="form-hp" aria-hidden="true">
+            <label>Website<input type="text" name="website" tabindex="-1" autocomplete="off"></label>
+          </div>
           <label>
-            <span>Name <em aria-hidden="true">*</em></span>
+            <span>Name</span>
             <input name="name" autocomplete="name" required aria-required="true">
           </label>
           <label>
-            <span>Email <em aria-hidden="true">*</em></span>
+            <span>Work email</span>
             <input name="email" type="email" autocomplete="email" required aria-required="true">
           </label>
           <label>
-            <span>Company <em aria-hidden="true">*</em></span>
+            <span>Company</span>
             <input name="organization" autocomplete="organization" required aria-required="true">
           </label>
           <label>
-            <span>LinkedIn</span>
+            <span>LinkedIn <span class="form-optional">(optional)</span></span>
             <input name="linkedin" type="url" autocomplete="url">
           </label>
           <label class="form-full">
-            <span>Data transfer needs <em aria-hidden="true">*</em></span>
-            <textarea name="needs" rows="5" required aria-required="true"></textarea>
+            <span>Data transfer needs</span>
+            <textarea name="needs" rows="5" required aria-required="true" placeholder="e.g. nightly CSV exports to ~20 partners, currently over SFTP"></textarea>
           </label>
-          <button class="button button-primary form-submit" type="submit">Send request</button>
-          <p class="form-status form-full" role="status" data-sales-form-status></p>
+          <div class="form-actions form-full">
+            <p class="form-status" role="status" data-sales-form-status></p>
+            <button class="button button-primary form-submit" type="submit">Submit</button>
+          </div>
         </form>
       </section>
     </div>
@@ -92,20 +128,23 @@
       <div class="footer-inner">
         <div class="footer-grid">
           <div>
-            <h3>News</h3>
+            <h3>Product</h3>
             <ul>
-              <li><a href="https://medium.com/@GlueOps/general-folders-launches-a-developer-platform-in-days-with-glueops-dcca6132a38d">General Folders launches a developer platform in days with GlueOps</a></li>
-              <li><a href="https://beststartup.la/securing-the-cloud-spotlight-on-san-franciscos-innovative-cloud-security-companies/">Securing the Cloud: Spotlight on San Francisco's Innovative Cloud Security Companies</a></li>
-              <li><a href="https://www.techstars.com/newsroom/new-class-san-diego-sdsu">Techstars San Diego Powered By San Diego State University Announces Inaugural 2023 Class</a></li>
+              <li><a href="/product/">Product</a></li>
+              <li><a href="/#community">Community</a></li>
             </ul>
-            <a class="footer-more" href="/news/">More →</a>
+          </div>
+          <div>
+            <h3>Resources</h3>
+            <ul>
+              <li><a href="/blog/">Blog</a></li>
+              <li><a href="/news/">News</a></li>
+            </ul>
           </div>
           <div>
             <h3>Company</h3>
             <ul>
               <li><a href="/company/">About</a></li>
-              <li><a href="/blog/">Blog</a></li>
-              <li><a href="/news/">News</a></li>
             </ul>
           </div>
           <div>
@@ -145,6 +184,13 @@
         const closers = document.querySelectorAll("[data-close-sales-modal]");
         let previousFocus = null;
 
+        const header = document.querySelector(".site-header");
+        if (header) {
+          const onScroll = () => header.classList.toggle("is-stuck", window.scrollY > 4);
+          onScroll();
+          window.addEventListener("scroll", onScroll, { passive: true });
+        }
+
         const openModal = () => {
           previousFocus = document.activeElement;
           modal.hidden = false;
@@ -164,7 +210,30 @@
         }));
         closers.forEach((closer) => closer.addEventListener("click", closeModal));
         document.addEventListener("keydown", (event) => {
-          if (event.key === "Escape" && !modal.hidden) closeModal();
+          if (modal.hidden) return;
+
+          if (event.key === "Escape") {
+            closeModal();
+            return;
+          }
+
+          if (event.key === "Tab") {
+            const focusable = modal.querySelectorAll(
+              "a[href], button:not([disabled]), input:not([disabled]):not([tabindex='-1']), textarea:not([disabled]), [tabindex]:not([tabindex='-1'])"
+            );
+            if (focusable.length === 0) return;
+
+            const first = focusable[0];
+            const last = focusable[focusable.length - 1];
+
+            if (event.shiftKey && document.activeElement === first) {
+              event.preventDefault();
+              last.focus();
+            } else if (!event.shiftKey && document.activeElement === last) {
+              event.preventDefault();
+              first.focus();
+            }
+          }
         });
 
         form?.addEventListener("submit", async (event) => {
@@ -174,13 +243,16 @@
 
           const submit = form.querySelector("[type='submit']");
           submit.disabled = true;
-          formStatus.textContent = "Sending...";
+          const sendingTimer = setTimeout(() => {
+            formStatus.textContent = "Sending...";
+          }, 300);
 
           try {
             const response = await fetch(form.action, {
               method: "POST",
               body: new FormData(form)
             });
+            clearTimeout(sendingTimer);
 
             if (response.ok) {
               form.reset();
@@ -193,6 +265,7 @@
           } catch {
             formStatus.textContent = "Could not reach the form service. Please try again.";
           } finally {
+            clearTimeout(sendingTimer);
             submit.disabled = false;
           }
         });

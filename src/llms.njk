@@ -1,0 +1,27 @@
+---
+permalink: /llms.txt
+eleventyExcludeFromCollections: true
+---
+# General Folders
+
+> {{ site.description }}
+
+General Folders is a business-to-business data transfer product. Each transfer
+is a durable exchange object: define an exchange, connect the source and
+destination endpoints you own, set a cadence, and run it. Credentials are held
+as secret references and transfers execute in isolated workers. Every run
+records counts, checksums, retries, and failure detail behind a
+permission-scoped audit trail. The product is API-first and can be embedded in
+another product.
+
+## Pages
+- [Product]({{ site.url }}/product/): How General Folders works, with the dashboard, execution model, run evidence, and API.
+- [Company]({{ site.url }}/company/): Who is building General Folders and who backs it.
+- [Resources]({{ site.url }}/resources/): Writing and announcements.
+- [Privacy policy]({{ site.url }}/privacy-policy/): How data is handled.
+- [Terms of service]({{ site.url }}/terms-of-service/): Terms for using the site and product.
+
+## Writing
+{%- for post in collections.post | reverse %}
+- [{{ post.data.title }}]({{ site.url }}{{ post.url }}): {{ post.data.description }}
+{%- endfor %}

@@ -1,0 +1,177 @@
+---
+layout: base.njk
+title: Product | General Folders
+description: How General Folders works. One exchange record drives the API, dashboard, approvals, runs, failures, and audit.
+permalink: /product/
+---
+<section class="section page-hero">
+  <div class="content">
+    <h1 class="page-title gradient-text">How it works</h1>
+    <p class="lead">General Folders gives companies a governed way to exchange operational data with customers and partners.</p>
+  </div>
+</section>
+
+<section class="section section-cream" style="--feature-accent: var(--coral)">
+  <div class="split split-dash">
+    <div>
+      <span class="feature-kicker">01</span>
+      <h3>Run every transfer from one dashboard</h3>
+      <p class="muted">Define an exchange, connect the source and destination endpoints you own, and set a cadence. General Folders schedules each run and reports live status.</p>
+    </div>
+    <div class="gf-ui" role="img" aria-label="General Folders dashboard showing a daily operational feed with run status, record count, and checksum">
+      <div class="gf-ui-top">
+        <img class="gf-ui-logo" src="/assets/images/logo-icon.png" alt="General Folders" width="22" height="22">
+        <span class="gf-ui-divider"></span>
+        <span class="gf-ui-crumb"><span class="gf-ui-muted">Duff Beer</span> <span class="gf-ui-sep">›</span> <strong>Pipelines</strong></span>
+        <span class="sp"></span>
+        <span class="gf-ui-account">
+          <span class="gf-ui-hello">Hi Henry</span>
+          <span class="gf-ui-gear" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none"><path d="M6.2 1.8l.3-1h3l.3 1 1.4.6.9-.5 2.1 2.1-.5.9.6 1.4 1 .3v3l-1 .3-.6 1.4.5.9-2.1 2.1-.9-.5-1.4.6-.3 1h-3l-.3-1-1.4-.6-.9.5-2.1-2.1.5-.9-.6-1.4-1-.3v-3l1-.3.6-1.4-.5-.9 2.1-2.1.9.5 1.4-.6z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/><circle cx="8" cy="8" r="2.2" stroke="currentColor" stroke-width="1.2"/></svg></span>
+          <span class="gf-ui-logout">Log out</span>
+        </span>
+      </div>
+      <div class="gf-ui-body">
+        <div class="gf-ui-nav">
+          <div>Inbox</div>
+          <div>Clients</div>
+          <div>Endpoints</div>
+          <div class="on">Pipelines</div>
+        </div>
+        <div class="gf-ui-main">
+          <div class="gf-ui-list">
+            <div class="row on"><span class="gf-ui-stat ok"></span><div><strong>Daily operational feed</strong><small>Source database · Inbound</small></div></div>
+            <div class="row"><span class="gf-ui-stat ok"></span><div><strong>Partner update export</strong><small>Destination system · Outbound</small></div></div>
+            <div class="row"><span class="gf-ui-stat warn"></span><div><strong>Reference data sync</strong><small>Waiting on approval</small></div></div>
+          </div>
+          <div class="gf-ui-detail">
+            <strong>Daily operational feed</strong>
+            <div class="gf-ui-meta">
+              <div><span>Direction</span><strong>Inbound</strong></div>
+              <div><span>Cadence</span><strong>Daily, 06:00</strong></div>
+              <div><span>Last run</span><strong class="gf-tag-ok">Success</strong></div>
+              <div><span>Records</span><strong>12,840</strong></div>
+              <div><span>Checksum</span><strong>matched ✓</strong></div>
+              <div><span>Retries</span><strong>0</strong></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="--feature-accent: var(--purple)">
+  <div class="split split-diagram">
+    <div class="gf-diagram">
+      <div class="gf-row">
+        <div class="gf-node">Dashboard</div>
+        <div class="gf-node">Host app</div>
+        <div class="gf-node">Integration service</div>
+      </div>
+      <div class="gf-arrow"></div>
+      <div class="gf-plane cp">
+        <div class="gf-plane-h">Control plane · intent, policy, visibility</div>
+        <div class="gf-row">
+          <div class="gf-node cp key">Public API</div>
+          <div class="gf-node cp">Metadata DB</div>
+          <div class="gf-node cp">Secret store</div>
+          <div class="gf-node cp">Queue</div>
+        </div>
+      </div>
+      <div class="gf-arrow"><b>Enqueue job</b></div>
+      <div class="gf-plane dp">
+        <div class="gf-plane-h">Data plane · execution</div>
+        <div class="gf-row">
+          <div class="gf-node dp key">Isolated workers</div>
+          <div class="gf-node dp">Source endpoints</div>
+          <div class="gf-node dp">Destination endpoints</div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <span class="feature-kicker">02</span>
+      <h3>Owned connections, isolated execution</h3>
+      <p class="muted">Each organization connects only the endpoints it owns, with credentials held as secret references. Transfers execute in isolated workers, so payloads move through the run instead of pooling in storage.</p>
+      <ul>
+        <li>The control plane stores policy, approvals, schedule, status, and audit.</li>
+        <li>The data plane runs isolated workers with scoped endpoint credentials.</li>
+        <li>Data moves through the workflow rather than into a long-term file pool.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section section-cream" style="--feature-accent: var(--green)">
+  <div class="split">
+    <div>
+      <span class="feature-kicker">03</span>
+      <h3>Proof every transfer worked</h3>
+      <p class="muted">Every run records counts, checksums, retries, and failure detail behind a permission-scoped audit trail, so you can confirm delivery and troubleshoot without exposing raw data.</p>
+      <ul>
+        <li>Each run returns status, events, failure details, and webhooks.</li>
+        <li>Record counts, checksums, and retries confirm each transfer.</li>
+      </ul>
+    </div>
+    <div class="gf-ui">
+      <div class="gf-ui-top">
+        <strong>Daily operational feed</strong>
+        <span class="sp"></span>
+        <span class="gf-tag-ok">Success</span>
+      </div>
+      <div class="gf-ui-detail">
+        <div class="gf-ui-meta">
+          <div><span>Direction</span><strong>Inbound</strong></div>
+          <div><span>Cadence</span><strong>Daily, 06:00</strong></div>
+          <div><span>Last run</span><strong class="gf-tag-ok">Success</strong></div>
+          <div><span>Records</span><strong>12,840</strong></div>
+          <div><span>Checksum</span><strong>matched ✓</strong></div>
+          <div><span>Retries</span><strong>0</strong></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="--feature-accent: var(--blue)">
+  <div class="split split-api">
+    <pre class="code-sample"><span class="tok-method">POST</span> <span class="tok-path">/v1/exchanges</span>
+<span class="tok-punc">{</span>
+  <span class="tok-key">"partner_org_id"</span><span class="tok-punc">:</span> <span class="tok-str">"org_partner"</span><span class="tok-punc">,</span>
+  <span class="tok-key">"source_endpoint_id"</span><span class="tok-punc">:</span> <span class="tok-str">"ep_source_db"</span><span class="tok-punc">,</span>
+  <span class="tok-key">"source_dataset"</span><span class="tok-punc">:</span> <span class="tok-str">"operations.view_daily_export"</span><span class="tok-punc">,</span>
+  <span class="tok-key">"schema_id"</span><span class="tok-punc">:</span> <span class="tok-str">"schema_operational_feed_v1"</span><span class="tok-punc">,</span>
+  <span class="tok-key">"cadence"</span><span class="tok-punc">:</span> <span class="tok-str">"daily"</span><span class="tok-punc">,</span>
+  <span class="tok-key">"timezone"</span><span class="tok-punc">:</span> <span class="tok-str">"America/Los_Angeles"</span><span class="tok-punc">,</span>
+  <span class="tok-key">"retry_policy"</span><span class="tok-punc">: {</span> <span class="tok-key">"max_attempts"</span><span class="tok-punc">:</span> <span class="tok-num">3</span> <span class="tok-punc">}</span>
+<span class="tok-punc">}</span>
+
+<span class="tok-resp">→ 201 Created</span>
+<span class="tok-punc">{</span>
+  <span class="tok-key">"exchange_id"</span><span class="tok-punc">:</span> <span class="tok-str">"ex_7d91"</span><span class="tok-punc">,</span>
+  <span class="tok-key">"status"</span><span class="tok-punc">:</span> <span class="tok-str">"pending_partner_approval"</span><span class="tok-punc">,</span>
+  <span class="tok-key">"partner_inbox_item_id"</span><span class="tok-punc">:</span> <span class="tok-str">"in_42c1"</span><span class="tok-punc">,</span>
+  <span class="tok-key">"audit_event_id"</span><span class="tok-punc">:</span> <span class="tok-str">"evt_9f8e7d"</span>
+<span class="tok-punc">}</span></pre>
+    <div>
+      <span class="feature-kicker">04</span>
+      <h3>API-first, built to embed</h3>
+      <p class="muted">Every exchange is an API object with status webhooks. Create and track transfers from the API, or embed the setup flow so your customers never leave your product.</p>
+      <ol class="steps">
+        <li>Create an exchange with partner, endpoint, dataset, schema, and cadence.</li>
+        <li>Record the partner approval state.</li>
+        <li>Execute each run through isolated workers.</li>
+        <li>Return status, failure details, audit events, and webhooks.</li>
+        <li>Monitor API usage and exchange activity in the dashboard.</li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="section cta-inner">
+    <span class="eyebrow">Get started</span>
+    <h2>A governed way to exchange<br><span class="gradient-text">operational data</span></h2>
+    <p class="lead">Skip the SFTP folders, email handoffs, and one-off scripts.</p>
+    <button class="button button-green" type="button" data-open-sales-modal>Get started</button>
+  </div>
+</section>

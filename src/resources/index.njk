@@ -1,0 +1,53 @@
+---
+layout: base.njk
+title: Resources | General Folders
+description: Blog and news from General Folders.
+permalink: /resources/
+---
+<section class="section page-hero list-hero">
+  <div class="content">
+    <h1 class="page-title gradient-text">Resources</h1>
+    <p class="lead">Writing and announcements from General Folders.</p>
+  </div>
+</section>
+
+<section class="section list-section">
+  <header class="resource-head">
+    <span class="feature-kicker">01</span>
+    <div class="resource-head-row">
+      <h2 class="accent-heading">Blog</h2>
+      <a class="see-all" href="/blog/">See all posts →</a>
+    </div>
+  </header>
+  <div class="post-list">
+    {% for post in collections.post | reverse %}
+    {% if loop.index <= 1 %}
+      <article class="post-card">
+        <p class="meta">
+          <time datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate }}</time>
+          {% if post.data.author %}<span class="muted"> · {{ post.data.author }}</span>{% endif %}
+        </p>
+        <h2><a href="{{ post.url }}">{{ post.data.title }}</a></h2>
+        <p class="muted">{{ post.data.description }}</p>
+      </article>
+    {% endif %}
+    {% endfor %}
+  </div>
+</section>
+
+<section class="section section-cream list-section">
+  <header class="resource-head">
+    <span class="feature-kicker">02</span>
+    <div class="resource-head-row">
+      <h2 class="accent-heading">News</h2>
+      <a class="see-all" href="/news/">See all news →</a>
+    </div>
+  </header>
+  <div class="post-list">
+    <article class="post-card">
+      <p class="meta">February 2, 2024</p>
+      <h2><a href="https://medium.com/@GlueOps/general-folders-launches-a-developer-platform-in-days-with-glueops-dcca6132a38d">General Folders launches a developer platform in days with GlueOps</a></h2>
+      <p class="muted">After a successful funding round, General Folders needed to quickly onboard engineering teams and efficiently deploy new versions of its application as they added features to the product.</p>
+    </article>
+  </div>
+</section>
