@@ -17,7 +17,7 @@
   --blue: #4f84b8;
   --green: #2fa064;
   --light-blue: #8dc5e8;
-  --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  --mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
 }
 
 * {
@@ -361,9 +361,9 @@ h2 .gradient-text::after {
   color: var(--blue);
   display: inline-block;
   font-family: var(--mono);
-  font-size: 13px;
+  font-size: 19px;
   font-weight: 600;
-  letter-spacing: 0.04em;
+  letter-spacing: 0;
   line-height: 1.5;
   margin-bottom: 28px;
 }
@@ -457,8 +457,7 @@ h2 .gradient-text::after {
 .person .muted {
   color: #687078;
   font-family: var(--mono);
-  font-size: 13px;
-  letter-spacing: 0.01em;
+  font-size: 15px;
 }
 
 .avatar {
@@ -486,9 +485,9 @@ h2 .gradient-text::after {
   color: var(--blue);
   display: inline-block;
   font-family: var(--mono);
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.04em;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
   margin-bottom: 14px;
   text-transform: uppercase;
 }
@@ -688,6 +687,33 @@ h2 .gradient-text::after {
   width: 100%;
 }
 
+.article-body code {
+  font-family: var(--mono);
+  font-size: 0.9em;
+  background: var(--faint);
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  padding: 0.1em 0.35em;
+}
+
+.article-body pre {
+  background: var(--faint);
+  border: 1px solid var(--line);
+  font-family: var(--mono);
+  font-size: 0.875em;
+  line-height: 1.65;
+  margin: 28px 0;
+  overflow-x: auto;
+  padding: 18px 22px;
+}
+
+.article-body pre code {
+  background: none;
+  border: none;
+  font-size: inherit;
+  padding: 0;
+}
+
 .toc-wrap {
   align-self: start;
   height: 100%;
@@ -794,8 +820,7 @@ h2 .gradient-text::after {
 .footer-bottom {
   color: var(--muted);
   font-family: var(--mono);
-  font-size: 13px;
-  letter-spacing: 0.01em;
+  font-size: 15px;
   margin-top: 30px;
   padding-top: 22px;
 }
@@ -1152,8 +1177,7 @@ h2 .gradient-text::after {
 .trust-strip {
   color: var(--muted);
   font-family: var(--mono);
-  font-size: 13px;
-  letter-spacing: 0.01em;
+  font-size: 17px;
   margin-top: 22px;
   max-width: 900px;
 }
