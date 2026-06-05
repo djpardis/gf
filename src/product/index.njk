@@ -41,9 +41,8 @@ permalink: /product/
 
           <div class="gf-panel" data-panel="inbox">
             <div class="gf-ui-list">
-              <div class="row"><span class="gf-ui-stat warn"></span><div><strong>Dunder Mifflin</strong><small>Requesting to receive weekly inventory export</small></div><span class="gf-ui-ts">2h ago</span></div>
-              <div class="row"><span class="gf-ui-stat warn"></span><div><strong>Sterling Cooper</strong><small>Requesting to send monthly billing file</small></div><span class="gf-ui-ts">Yesterday</span></div>
-              <div class="row"><span class="gf-ui-stat ok"></span><div><strong>Lance Refrigeration</strong><small>Accepted daily parts feed</small></div><span class="gf-ui-ts">3d ago</span></div>
+              <div class="row"><span class="gf-ui-stat warn"></span><div><strong>Vance Refrigeration</strong><small>Requesting weekly inventory status</small></div><span class="gf-ui-ts">2h ago</span></div>
+              <div class="row"><span class="gf-ui-stat warn"></span><div><strong>Sterling Cooper</strong><small>Sending monthly billing log</small></div><span class="gf-ui-ts">Yesterday</span></div>
             </div>
           </div>
 
@@ -51,28 +50,28 @@ permalink: /product/
             <div class="gf-ui-list">
             <div class="row"><span class="gf-ui-stat ok"></span><div><strong>Dunder Mifflin</strong><small>3 pipelines · Active</small></div></div>
             <div class="row"><span class="gf-ui-stat ok"></span><div><strong>Sterling Cooper</strong><small>2 pipelines · Active</small></div></div>
-            <div class="row"><span class="gf-ui-stat warn"></span><div><strong>Lance Refrigeration</strong><small>1 pipeline · Pending setup</small></div></div>
+            <div class="row"><span class="gf-ui-stat warn"></span><div><strong>Vance Refrigeration</strong><small>1 pipeline · Pending setup</small></div></div>
             </div>
           </div>
 
           <div class="gf-panel" data-panel="endpoints">
             <div class="gf-ui-list">
-              <div class="row"><span class="gf-ui-stat ok"></span><div><strong>operations.view_daily_export</strong><small>Postgres · Source</small></div></div>
-              <div class="row"><span class="gf-ui-stat ok"></span><div><strong>s3://transfers-prod/outbound/</strong><small>S3 · Destination</small></div></div>
-              <div class="row"><span class="gf-ui-stat ok"></span><div><strong>/inbound/vendor-feeds/</strong><small>SFTP · Source</small></div></div>
+              <div class="row"><span class="gf-ui-stat ok"></span><div><strong>ops_daily_export</strong><small>Postgres · Source</small></div></div>
+              <div class="row"><span class="gf-ui-stat ok"></span><div><strong>transfers_prod</strong><small>S3 · Destination</small></div></div>
+              <div class="row"><span class="gf-ui-stat ok"></span><div><strong>vendor_feeds</strong><small>Snowflake · Source</small></div></div>
             </div>
           </div>
 
           <div class="gf-panel on" data-panel="pipelines">
             <div class="gf-ui-main">
               <div class="gf-ui-list">
-                <div class="row on"><span class="gf-ui-stat ok"></span><div><strong>Daily operational feed</strong><small>Source database · Inbound</small></div></div>
-                <div class="row"><span class="gf-ui-stat ok"></span><div><strong>Partner update export</strong><small>Destination system · Outbound</small></div></div>
-                <div class="row"><span class="gf-ui-stat warn"></span><div><strong>Reference data sync</strong><small>Destination system · Delayed</small></div></div>
+                <div class="row on"><span class="gf-ui-stat ok"></span><div><strong>Daily operational feed</strong><small>ops_daily_export</small></div></div>
+                <div class="row"><span class="gf-ui-stat ok"></span><div><strong>Partner update export</strong><small>transfers_prod</small></div></div>
+                <div class="row"><span class="gf-ui-stat warn"></span><div><strong>Reference data sync</strong><small>vendor_feeds</small></div></div>
               </div>
               <div class="gf-ui-detail">
-                <strong>Daily operational feed</strong>
                 <div class="gf-ui-meta">
+                  <div><span>Partner</span><strong>Sterling Cooper</strong></div>
                   <div><span>Direction</span><strong>Inbound</strong></div>
                   <div><span>Cadence</span><strong>Daily, 06:00</strong></div>
                   <div><span>Last run</span><strong class="gf-tag-ok">Success</strong></div>

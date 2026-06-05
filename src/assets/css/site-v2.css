@@ -1268,7 +1268,7 @@ h2 .gradient-text::after {
 
 .gf-ui-body {
   display: flex;
-  height: 248px;
+  height: 272px;
   overflow: hidden;
 }
 
@@ -1306,7 +1306,7 @@ h2 .gradient-text::after {
 
 .gf-ui-panels {
   flex: 1;
-  min-height: 248px;
+  min-height: 272px;
   min-width: 0;
   overflow: hidden;
 }
