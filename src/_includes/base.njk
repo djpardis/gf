@@ -209,6 +209,20 @@
           openModal();
         }));
         closers.forEach((closer) => closer.addEventListener("click", closeModal));
+        document.querySelectorAll("[data-gf-dashboard]").forEach((dashboard) => {
+          const tabs = dashboard.querySelectorAll(".gf-tab");
+          const panels = dashboard.querySelectorAll(".gf-panel");
+          const crumb = dashboard.querySelector("[data-gf-crumb]");
+          tabs.forEach((tab) => {
+            tab.addEventListener("click", () => {
+              const target = tab.dataset.tab;
+              tabs.forEach((t) => t.classList.toggle("on", t === tab));
+              panels.forEach((p) => p.classList.toggle("on", p.dataset.panel === target));
+              if (crumb) crumb.textContent = tab.textContent;
+            });
+          });
+        });
+
         document.addEventListener("keydown", (event) => {
           if (modal.hidden) return;
 

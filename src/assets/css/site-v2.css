@@ -1062,9 +1062,9 @@ h2 .gradient-text::after {
   font-size: 13.5px;
   line-height: 1.62;
   margin: 0;
-  overflow-x: auto;
   padding: 20px 22px;
-  white-space: pre;
+  white-space: pre-wrap;
+  word-break: break-all;
 }
 
 .code-sample .tok-method {
@@ -1267,26 +1267,70 @@ h2 .gradient-text::after {
 }
 
 .gf-ui-body {
-  display: grid;
-  grid-template-columns: 150px 1fr;
-  min-height: 248px;
+  display: flex;
+  height: 248px;
+  overflow: hidden;
 }
 
 .gf-ui-nav {
   background: var(--faint);
   border-right: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
   padding: 10px 8px;
+  width: 150px;
 }
 
-.gf-ui-nav div {
+.gf-tab {
+  background: none;
+  border: none;
   color: var(--text);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
   padding: 7px 11px;
+  text-align: left;
+  width: 100%;
 }
 
-.gf-ui-nav div.on {
+.gf-tab:hover {
+  color: var(--ink);
+}
+
+.gf-tab.on {
   background: var(--paper);
   border: 1px solid var(--line);
   font-weight: 700;
+}
+
+.gf-ui-panels {
+  flex: 1;
+  min-height: 248px;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.gf-panel {
+  display: none;
+  height: 100%;
+}
+
+.gf-panel.on {
+  display: block;
+}
+
+.gf-panel > .gf-ui-main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 100%;
+}
+
+.gf-ui-ts {
+  color: var(--muted);
+  font-size: 11px;
+  margin-left: auto;
+  white-space: nowrap;
 }
 
 .gf-ui-main {
@@ -1312,6 +1356,12 @@ h2 .gradient-text::after {
 
 .gf-ui-list .row strong {
   font-weight: 600;
+}
+
+.gf-panel[data-panel="endpoints"] .gf-ui-list .row strong {
+  font-family: var(--mono);
+  font-size: 0.9em;
+  font-weight: 500;
 }
 
 .gf-ui-list .row small {
@@ -1363,24 +1413,48 @@ h2 .gradient-text::after {
 
 @media (max-width: 640px) {
   .gf-ui-body {
-    grid-template-columns: 1fr;
+    flex-direction: column;
   }
 
   .gf-ui-nav {
     border-bottom: 1px solid var(--line);
     border-right: 0;
-    display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
     gap: 6px;
+    width: 100%;
   }
 
-  .gf-ui-main {
+  .gf-tab {
+    width: auto;
+  }
+
+  .gf-panel > .gf-ui-main {
     grid-template-columns: 1fr;
   }
 
   .gf-ui-list {
     border-bottom: 1px solid var(--line);
     border-right: 0;
+  }
+
+  .gf-ui-top {
+    overflow: hidden;
+  }
+
+  .gf-ui-crumb,
+  .gf-ui-hello {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .gf-diagram .gf-row {
+    flex-wrap: wrap;
+  }
+
+  .gf-diagram .gf-row > * {
+    flex: 1 1 120px;
   }
 }
 
@@ -1696,6 +1770,11 @@ h2 .gradient-text::after {
   .section,
   .footer-inner {
     padding-inline: 16px;
+  }
+
+  .gf-ui-top {
+    gap: 6px;
+    padding: 7px 10px;
   }
 
   .nav-links {
