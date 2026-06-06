@@ -21,14 +21,24 @@ permalink: /resources/
   </header>
   <div class="post-list">
     {% for post in collections.post | reverse %}
-    {% if loop.index <= 1 %}
-      <article class="post-card">
+    {% if loop.index == 1 %}
+      <article class="post-card post-card-featured">
         <p class="meta">
           <time datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate }}</time>
           {% if post.data.author %}<span class="muted"> · {{ post.data.author }}</span>{% endif %}
         </p>
         <h2><a href="{{ post.url }}">{{ post.data.title }}</a></h2>
         <p class="muted">{{ post.data.description }}</p>
+        <a href="{{ post.url }}">Read full article →</a>
+      </article>
+    {% endif %}
+    {% if loop.index > 1 and loop.index <= 4 %}
+      <article class="post-card post-card-compact">
+        <p class="meta">
+          <time datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate }}</time>
+          {% if post.data.author %}<span class="muted"> · {{ post.data.author }}</span>{% endif %}
+        </p>
+        <h3><a href="{{ post.url }}">{{ post.data.title }}</a></h3>
       </article>
     {% endif %}
     {% endfor %}
@@ -44,10 +54,19 @@ permalink: /resources/
     </div>
   </header>
   <div class="post-list">
-    <article class="post-card">
+    <article class="post-card post-card-featured">
       <p class="meta">February 2, 2024</p>
       <h2><a href="https://medium.com/@GlueOps/general-folders-launches-a-developer-platform-in-days-with-glueops-dcca6132a38d">General Folders launches a developer platform in days with GlueOps</a></h2>
       <p class="muted">After a successful funding round, General Folders needed to quickly onboard engineering teams and efficiently deploy new versions of its application as they added features to the product.</p>
+      <a href="https://medium.com/@GlueOps/general-folders-launches-a-developer-platform-in-days-with-glueops-dcca6132a38d">Read full article →</a>
+    </article>
+    <article class="post-card post-card-compact">
+      <p class="meta">December 19, 2023</p>
+      <h3><a href="https://beststartup.la/securing-the-cloud-spotlight-on-san-franciscos-innovative-cloud-security-companies/">Securing the Cloud: Spotlight on San Francisco's Innovative Cloud Security Companies</a></h3>
+    </article>
+    <article class="post-card post-card-compact">
+      <p class="meta">September 12, 2023</p>
+      <h3><a href="https://www.techstars.com/newsroom/new-class-san-diego-sdsu">Techstars San Diego Powered By SDSU Announces Inaugural 2023 Class</a></h3>
     </article>
   </div>
 </section>
