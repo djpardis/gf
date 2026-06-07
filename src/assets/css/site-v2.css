@@ -1223,6 +1223,12 @@ h2 .gradient-text::after {
   overflow: hidden;
 }
 
+@media (max-width: 640px) {
+  .gf-ui {
+    overflow: visible;
+  }
+}
+
 .gf-ui-top {
   align-items: center;
   background: var(--paper);
@@ -1375,6 +1381,10 @@ h2 .gradient-text::after {
   padding: 11px 13px;
 }
 
+.gf-ui-list .row:last-child {
+  border-bottom: 0;
+}
+
 .gf-ui-list .row.on {
   background: var(--faint);
 }
@@ -1439,6 +1449,12 @@ h2 .gradient-text::after {
 @media (max-width: 640px) {
   .gf-ui-body {
     flex-direction: column;
+    height: auto;
+  }
+
+  .gf-ui-panels {
+    height: 290px;
+    overflow: hidden;
   }
 
   .gf-ui-nav {
@@ -1447,6 +1463,7 @@ h2 .gradient-text::after {
     flex-direction: row;
     flex-wrap: wrap;
     gap: 6px;
+    padding: 8px 10px;
     width: 100%;
   }
 
@@ -1461,6 +1478,15 @@ h2 .gradient-text::after {
   .gf-ui-list {
     border-bottom: 1px solid var(--line);
     border-right: 0;
+  }
+
+  .gf-ui-detail {
+    padding-top: 16px;
+  }
+
+  .gf-ui-hello,
+  .gf-ui-logout {
+    display: none;
   }
 
   .gf-ui-top {
